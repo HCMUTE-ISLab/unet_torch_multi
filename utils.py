@@ -2,6 +2,12 @@ import torch
 import torchvision
 from dataset import CarvanaDataset
 from torch.utils.data import DataLoader
+from _dataset import *
+
+
+
+
+
 
 def save_checkpoint(state, filename="my_checkpoint.pth.tar"):
     print("=> Saving checkpoint")
@@ -19,14 +25,14 @@ def get_loaders(
     batch_size,
     train_transform,
     val_transform,
-    num_workers=4,
-    pin_memory=True,
+    num_workers=0,
+    pin_memory=False,
 ):
-    train_ds = CarvanaDataset(
-        image_dir=train_dir,
-        mask_dir=train_maskdir,
-        transform=train_transform,
+    train_ds = UTE(
+        train_dir,
+        train_maskdir
     )
+
 
     train_loader = DataLoader(
         train_ds,
@@ -36,10 +42,9 @@ def get_loaders(
         shuffle=True,
     )
 
-    val_ds = CarvanaDataset(
-        image_dir=val_dir,
-        mask_dir=val_maskdir,
-        transform=val_transform,
+    val_ds = UTE(
+        val_dir,
+        val_maskdir,
     )
 
     val_loader = DataLoader(
