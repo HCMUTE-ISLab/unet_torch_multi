@@ -21,10 +21,10 @@ import torchvision.transforms.functional as ff
 from sklearn.metrics import classification_report, confusion_matrix
 
 
-IMG_HEIGHT = 224
-IMG_WIDTH = 224
+IMG_HEIGHT = 161
+IMG_WIDTH = 161
 IMG_CHANNEL = 3
-NUM_CLASSES = 32
+NUM_CLASSES = 4
 BATCH_SIZE = 32
 DROPOUT = 0.3
 

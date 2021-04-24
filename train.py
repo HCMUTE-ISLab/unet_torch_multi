@@ -35,7 +35,7 @@ def train_fn(loader, model, optimizer, loss_fn, scaler):
     for batch_idx, (data, targets) in enumerate(loop):
         data = data.to(device=DEVICE)
        
-        targets = targets.long().squeeze(1).to(device=DEVICE)
+        targets = targets.squeeze(1).to(device=DEVICE)
         #targets = targets.permute(1,2,3)
         
 
