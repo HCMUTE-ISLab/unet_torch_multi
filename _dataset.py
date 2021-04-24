@@ -16,7 +16,7 @@ from skimage.io import imread, imshow, imread_collection, concatenate_images
 from skimage.transform import resize
 from skimage.morphology import label
 import torchvision.transforms.functional as ff
-import tensorflow as tf
+
 
 from sklearn.metrics import classification_report, confusion_matrix
 
